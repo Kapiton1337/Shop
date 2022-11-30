@@ -15,8 +15,8 @@ const Auth = observer(() => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    try {
-        const click = async () => {
+    const click = async () => {
+        try {
             let data;
             if(isLogin){
                 data = await login(email, password);
@@ -28,8 +28,9 @@ const Auth = observer(() => {
             user.setIsAuth(true);
             navigation(SHOP_ROUTE);
         }
-    } catch (e) {
-      alert(e.response.data.message)
+        catch (e) {
+            alert(e.response.data.message)
+        }
     }
 
     return (
@@ -53,6 +54,7 @@ const Auth = observer(() => {
                         }
                         <Button
                             variant={"outline-success"}
+                            onClick={click}
                         >
                             <div>{isLogin ? "Войти" : "Зарегистрироваться"}</div>
                         </Button>

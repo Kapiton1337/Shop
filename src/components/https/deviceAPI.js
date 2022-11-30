@@ -32,6 +32,21 @@ export const fetchDevices = async (typeId, brandId, page, limit= 5) => {
     return data;
 }
 
+export const fetchBasketItem = async () => {
+    const {data} = await $authHost.get('api/basket');
+    return data;
+}
+
+export const buyDevice = async (id) => {
+    const {data} = $authHost.post('api/buy' + id);
+    return data;
+}
+
+export const addBasketItem = async (id) => {
+    const {data} = $authHost.post('api/basket' + id);
+    return data;
+}
+
 export const fetchOneDevice = async (id) => {
     const {data} = await $host.get('api/device/' + id);
     return data;

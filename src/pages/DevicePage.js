@@ -3,7 +3,7 @@ import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import {Context} from "../index";
 import {STAR} from "../utils/consts";
 import {useParams} from "react-router-dom";
-import {fetchOneDevice} from "../components/https/deviceAPI";
+import {addBasketItem, fetchOneDevice} from "../components/https/deviceAPI";
 
 const DevicePage = () => {
     /*const {devices: {devices}} = useContext(Context);
@@ -46,7 +46,10 @@ const DevicePage = () => {
                     <Card className="d-flex flex-column align-items-center justify-content-around"
                           style={{width: 300, height: 300, fontSize: 32, border: "5px solid lightgray"}}>
                         <h3>От {device.price} руб.</h3>
-                        <Button variant={"outline-dark"}>Добавить в корзину</Button>
+                        <Button variant={"outline-dark"}
+                        onClick={(id)=>addBasketItem(id)}>
+                            Добавить в корзину
+                        </Button>
                     </Card>
                 </Col>
             </Row>

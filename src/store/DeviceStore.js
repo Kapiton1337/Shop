@@ -56,11 +56,12 @@ export default class DeviceStore {
                 img: `https://oprezi.ru/fl/image.raw?view=image&type=img&id=23`
             },
         ]
-        this._selectedType = {};
-        this._selectedBrand = {};
-        this._page = 1;
-        this._totalCount = 0;
-        this._limit = 4;
+        this._basket = []
+        this._selectedType = {}
+        this._selectedBrand = {}
+        this._page = 1
+        this._totalCount = 0
+        this._limit = 4
         makeAutoObservable(this);
     }
 
@@ -86,16 +87,20 @@ export default class DeviceStore {
         this._selectedBrand = brand;
     }
 
-    setPage(page){
+    setPage(page) {
         return this._page = page;
     }
 
-    setTotalCount(count){
+    setTotalCount(count) {
         return this._totalCount = count;
     }
 
-    setLimit(limit){
+    setLimit(limit) {
         return this._limit = limit;
+    }
+
+    setBasket(basket) {
+        return this._basket = basket;
     }
 
     get types() {
@@ -118,16 +123,19 @@ export default class DeviceStore {
         return this._selectedBrand
     }
 
-    get Page(){
+    get Page() {
         return this._page;
     }
 
-    get totalCount(){
+    get totalCount() {
         return this._totalCount;
     }
 
-    get Limit(){
+    get Limit() {
         return this._limit;
     }
 
+    get Basket() {
+        return this._basket;
+    }
 }
